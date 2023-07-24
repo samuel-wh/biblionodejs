@@ -1,0 +1,18 @@
+version: '2.17.3'
+
+services:
+  mysql:
+    image: 'mysql:8.0.3'
+    restart: always
+    ports:
+      - 3307:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=biblionode
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+
+volumes:
+  mysql_data:
