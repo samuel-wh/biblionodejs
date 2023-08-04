@@ -17,7 +17,7 @@ const BookSchema = {
   },
   publisherId: {
     field: 'publisher_id',
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.INTEGER,
     references: {
       model: PUBLISHER_TABLE,
@@ -43,6 +43,12 @@ const BookSchema = {
 class Book extends Model {
   static associate(models) {
     this.belongsTo(models.Publisher, { as: 'publisher' });
+    this.belongsToMany(models.Product, {
+      as: 'books_authors',
+      through: models.BookAuthor,
+      foreignKey: 'bookId',
+      otherKey: 'authorId',
+    });
   }
 
   static config(sequelize) {

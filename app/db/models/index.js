@@ -10,7 +10,6 @@ function setupModels(sequelize) {
   BookAuthor.init(BookAuthorSchema, BookAuthor.config(sequelize));
 
   // Iniciar asociaciones
-  Author.associate(sequelize.models);
   Publisher.associate(sequelize.models);
   Book.associate(sequelize.models);
 }

@@ -34,15 +34,7 @@ const AuthorSchema = {
 };
 
 class Author extends Model {
-  static associate(models) {
-    this.belongsToMany(models.Book, {
-      as: 'items',
-      /* Tabla intermedia */
-      through: models.BookAuthor,
-      foreignKey: 'authorId',
-      otherKey: 'bookId',
-    });
-  }
+  static associate() {}
 
   static config(sequelize) {
     return {

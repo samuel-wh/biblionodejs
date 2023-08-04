@@ -43,6 +43,7 @@ const PublisherSchema = {
 
 class Publisher extends Model {
   static associate(models) {
+    // associate
     this.hasMany(models.Book, {
       as: 'books',
       foreignKey: 'publisherId',
