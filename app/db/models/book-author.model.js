@@ -17,7 +17,7 @@ const BookAuthorSchema = {
     type: DataTypes.INTEGER,
     references: { model: BOOK_TABLE, key: 'id' },
     onUpdate: 'CASCADE',
-    onDelete: 'SET NULL',
+    onDelete: 'CASCADE',
   },
   authorId: {
     field: 'author_id',
@@ -25,7 +25,7 @@ const BookAuthorSchema = {
     type: DataTypes.INTEGER,
     references: { model: AUTHOR_TABLE, key: 'id' },
     onUpdate: 'CASCADE',
-    onDelete: 'SET NULL',
+    onDelete: 'CASCADE',
   },
   createdAt: {
     allowNull: false,
@@ -40,7 +40,7 @@ class BookAuthor extends Model {
     return {
       sequelize,
       tableName: BOOK_AUTHOR_TABLE,
-      modelName: 'OrderProduct',
+      modelName: 'BookAuthor',
       timestamps: false,
     };
   }

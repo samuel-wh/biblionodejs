@@ -43,7 +43,7 @@ const BookSchema = {
 class Book extends Model {
   static associate(models) {
     this.belongsTo(models.Publisher, { as: 'publisher' });
-    this.belongsToMany(models.Product, {
+    this.belongsToMany(models.Author, {
       as: 'books_authors',
       through: models.BookAuthor,
       foreignKey: 'bookId',

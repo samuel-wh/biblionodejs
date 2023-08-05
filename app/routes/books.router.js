@@ -7,19 +7,24 @@ const {
   updateBookSchema,
   createBookSchema,
   getBookSchema,
+  queryBookSchema,
 } = require('./../schemas/book.schema');
 
 const service = new bookService();
 const router = express.Router();
 
-router.get('/', async (req, res, next) => {
-  try {
-    const books = await service.find();
-    res.json(books);
-  } catch (error) {
-    next(error);
-  }
-});
+router.get(
+  '/',
+  validatorHandler(queryBookSchema, 'query'),
+  async (req, res, next) => {
+    try {
+      const books = await service.find(req.query);
+      res.json(books);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 router.get(
   '/:id',

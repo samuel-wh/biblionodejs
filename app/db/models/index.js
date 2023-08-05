@@ -12,6 +12,8 @@ function setupModels(sequelize) {
   // Iniciar asociaciones
   Publisher.associate(sequelize.models);
   Book.associate(sequelize.models);
+  Author.associate(sequelize.models);
+  BookAuthor.associate(sequelize.models);
 }
 
 module.exports = setupModels;
