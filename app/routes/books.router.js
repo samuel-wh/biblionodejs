@@ -19,7 +19,7 @@ router.get(
   async (req, res, next) => {
     try {
       const books = await service.find(req.query);
-      res.json(books);
+      res.status(200).json(books);
     } catch (error) {
       next(error);
     }
@@ -33,7 +33,7 @@ router.get(
     try {
       const { id } = req.params;
       const book = await service.findOne(id);
-      res.json(book);
+      res.status(200).json(book);
     } catch (error) {
       next(error);
     }
@@ -63,7 +63,7 @@ router.patch(
       const { id } = req.params;
       const body = req.body;
       const book = await service.update(id, body);
-      res.json(book);
+      res.status(200).json(book);
     } catch (error) {
       next(error);
     }
@@ -77,7 +77,7 @@ router.delete(
     try {
       const { id } = req.params;
       await service.delete(id);
-      res.status(201).json({ id });
+      res.status(204).json({ id });
     } catch (error) {
       next(error);
     }

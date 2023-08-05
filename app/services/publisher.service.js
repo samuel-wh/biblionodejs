@@ -3,6 +3,11 @@ const { models } = require('../libs/sequelize');
 
 class PublisherService {
   constructor() {}
+  async create(data) {
+    const newPublisher = await models.Publisher.create(data);
+    return newPublisher;
+  }
+
   async find() {
     const options = {
       include: ['books'],

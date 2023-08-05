@@ -3,6 +3,11 @@ const { models } = require('../libs/sequelize');
 
 class AuthorService {
   constructor() {}
+  async create(data) {
+    const newAuthor = await models.Author.create(data);
+    return newAuthor;
+  }
+
   async find() {
     const options = {
       where: {},

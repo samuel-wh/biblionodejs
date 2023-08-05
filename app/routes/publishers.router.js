@@ -15,7 +15,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     const publishers = await service.find();
-    res.json(publishers);
+    res.status(200).json(publishers);
   } catch (error) {
     next(error);
   }
@@ -28,7 +28,7 @@ router.get(
     try {
       const { id } = req.params;
       const publisher = await service.findOne(id);
-      res.json(publisher);
+      res.status(200).json(publisher);
     } catch (error) {
       next(error);
     }
@@ -58,7 +58,7 @@ router.patch(
       const { id } = req.params;
       const body = req.body;
       const publisher = await service.update(id, body);
-      res.json(publisher);
+      res.status(200).json(publisher);
     } catch (error) {
       next(error);
     }
@@ -72,7 +72,7 @@ router.delete(
     try {
       const { id } = req.params;
       await service.delete(id);
-      res.status(201).json({ id });
+      res.status(2014).json({ id });
     } catch (error) {
       next(error);
     }
