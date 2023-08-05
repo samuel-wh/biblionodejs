@@ -1,11 +1,11 @@
 const express = require('express');
-const routerApi = require('./app/routes');
+const routerApi = require('./routes');
 const cors = require('cors');
 const {
   logErrors,
   errorHandler,
   boomErrorHandler,
-} = require('./app/middlewares/error.handler');
+} = require('./middlewares/error.handler');
 
 const app = express();
 const port = process.env.PORT || 3000;
