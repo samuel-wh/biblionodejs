@@ -13,14 +13,5 @@ services:
       - MYSQL_DATABASE=biblionodejs
       - MYSQL_USER=root
       - MYSQL_PORT=3306
-
-  phpmyadmin:
-      image: phpmyadmin/phpmyadmin
-      environment:
-        - MYSQL_ROOT_PASSWORD=admin123
-        - PMA_HOST=mysql
-      ports:
-        - 8080:80
-
 volumes:
   mysql_data:

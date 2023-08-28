@@ -11,7 +11,7 @@ const URI = `mysql://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${con
  * dialect → Para indicar que BD se está usando
  * logging → Cada vez que se haga una consulta con el ORM, en la consola se muestra el resultado o el igual en comando directo SQL.
  */
-const sequelize = new Sequelize(URI, { dialect: 'mysql', logging: true }); // Se crea una instancia de Sequelize, ya gestiona el pooling.
+const sequelize = new Sequelize(URI, { dialect: 'mysql', logging: false }); // Se crea una instancia de Sequelize, ya gestiona el pooling.
 
 setupModels(sequelize);
 

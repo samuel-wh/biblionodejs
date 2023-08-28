@@ -72,7 +72,7 @@ router.delete(
     try {
       const { id } = req.params;
       await service.delete(id);
-      res.status(2014).json({ id });
+      res.status(204).json({ id });
     } catch (error) {
       next(error);
     }
@@ -80,3 +80,5 @@ router.delete(
 );
 
 module.exports = router;
+
+[{ "key1": {} }, { "key2": {} }, { "key3": {} }]
